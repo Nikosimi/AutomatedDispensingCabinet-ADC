@@ -10,8 +10,9 @@ typedef struct {
 }drug;
 
 void createDrug();
-void deleteDrug();
-void listDrugs();
+void* listDrugs(drug* const drugMatrix);
+void* searchDrug();
 void updateDrug();
+void deleteDrug();
 void saveDrugs();
 void loadDrugs();

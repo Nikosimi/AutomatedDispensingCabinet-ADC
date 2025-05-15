@@ -8,6 +8,7 @@ typedef enum {
 	EXIT,
 	ADD_DRUG,
 	LIST_DRUGS,
+	SEARCH_DRUG,
 	UPDATE_DRUG,
 	DELETE_DRUG,
 	ADD_USER,
@@ -19,18 +20,22 @@ void printMenu() {
 	printf("\n=== ADC Sustav ===\n");
 	printf("1. Dodaj lijek\n");
 	printf("2. Prikazi lijekove\n");
-	printf("3. Azuriraj lijek\n");
-	printf("4. Dodaj korisnika\n");
-	printf("5. Izbrisi korisnika\n");
-	printf("6. Prikazi korisnike\n");
+	printf("3. Pretrazi lijek\n");
+	printf("4. Azuriraj lijek\n");
+	printf("5. Dodaj korisnika\n");
+	printf("6. Izbrisi korisnika\n");
+	printf("7. Prikazi korisnike\n");
 	printf("0. Izlaz\n");
 	printf("Odabir: ");
 }
 
 int main(void) {
 	int choice;
+	static drug* drugMatrix = NULL;
+	static drug* filterDrug = NULL;
 	loadDrugs();
 	loadUsers();
+	
 
 	do {
 		printMenu();
@@ -41,13 +46,15 @@ int main(void) {
 		{
 		case ADD_DRUG: createDrug(); 
 			break;
-		case LIST_DRUGS: listDrugs(); 
+		case LIST_DRUGS: listDrugs(drugMatrix); 
+			break;
+		case SEARCH_DRUG: searchDrug(drugMatrix);
 			break;
 		case UPDATE_DRUG: updateDrug(); 
 			break;
 		case DELETE_DRUG: deleteDrug(); 
 			break;
-		case ADD_USER: addUser(); 
+		case ADD_USER: addUser();
 			break;
 		case DELETE_USER: deleteUser(); 
 			break;
