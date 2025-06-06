@@ -1,5 +1,0 @@
-﻿  main.c
-  meds.c
-C:\Users\student\source\repos\ADC2.6\ADC\ADC\meds.c(140,10): warning C4566: character represented by universal-character-name '\u0111' cannot be represented in the current code page (1252)
-  Generating Code...
-  ADC.vcxproj -> C:\Users\student\source\repos\ADC2.6\ADC\x64\Debug\ADC.exe
